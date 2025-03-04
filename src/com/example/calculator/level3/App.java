@@ -1,23 +1,25 @@
-package com.example.calculator.level2;
+package com.example.calculator.level3;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Calculator calcul = new Calculator();
+        ArithmeticCalculator calcul = new ArithmeticCalculator();
         InputMannger input = new InputMannger();
         Scanner scanner = new Scanner(System.in);
 
         String answer;
         do {
-            int x = input.positiveInteger1();
-            int y = input.positiveInteger2();
-            String operator = input.operatorAnswer();
-            int resultAnswerPrice = calcul.calculate(x,y,operator);
-            List<Integer> resultPrice = calcul.getResult();
+            double x = input.positiveInteger1();
+            double y = input.positiveInteger2();
+            OperatorType operator = OperatorType.findValidatedSymbol(input.operatorAnswer());
+            double resultAnswerPrice = (double) calcul.calculate(x,y,operator);
+            List<Double> resultPrice = calcul.getResult();
+
             System.out.println("결과 값 : " + resultAnswerPrice);
             System.out.println("현재 저장 된 결과 값 : " + resultPrice);
+
             input.removeFirstIdxFromResultPrice(resultPrice);
             answer = input.exitAnswer();
 

@@ -1,47 +1,55 @@
 package com.example.calculator.level2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Calculator {
 
-    // 속성 (변수선언)
-    int positiveInteger1;
-    int positiveInteger2;
+    // 속성
+    int x;
+    int y;
     String operator;
-    int result;
+    private List<Integer> result; // 인스턴스 변수
 
     // 생성자
-
     public Calculator() {
-
+        result = new ArrayList<Integer>();
     }
 
+    // 기능 (메서드)
 
-    // 기능 (메소드)
-    public void calculator(int positiveInteger1, int positiveInteger2, String operator) {
-        this.positiveInteger1 = positiveInteger1;
-        this.positiveInteger2 = positiveInteger2;
-        this.operator = operator;
-    }
+    public int calculate (int x, int y, String operator) {
+        int calculateResult = 0;
+        switch (operator) {
+            case "+":
+                calculateResult = x + y;
+                break;
 
-    public int calculate() {
-        int result = 0;
-        if ("+".equals(operator)) {
-            result = positiveInteger1 + positiveInteger2;
-        } else if ("-".equals(operator)) {
-            result = positiveInteger1 - positiveInteger2;
-        } else if ("*".equals(operator)) {
-            result = positiveInteger1 * positiveInteger2;
-        } else if ("/".equals(operator)) {
-            if (positiveInteger2 == 0) {
-                System.out.println("나눗셈 연산에서 분모(두 번재 정수)에 0이 입력될 수 없습니다.");
-            } result = positiveInteger1 / positiveInteger2;
+            case "-":
+                calculateResult = x - y;
+                break;
+
+            case "*":
+                calculateResult = x * y;
+                break;
+
+            case "/":
+                if (x == 0) {
+                    System.out.println("나눗셈 연산에서 분모(두 번재 정수)에 0이 입력될 수 없습니다.");
+                }
+                calculateResult = x / y;
+                break;
+
         }
+        result.add(calculateResult);
+        return calculateResult;
+    }
+
+    public List<Integer> getResult() {
         return result;
     }
 
-    String get;
-
-
-
-
-
+    void setResult(int resultPrice) {
+        this.result = result;
+    }
 }
