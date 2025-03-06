@@ -20,11 +20,11 @@ public class InputMannger {
         double x;
         while(true) {
             try {
-                System.out.print("첫 번째 정수를 입력하세요. : ");
+                System.out.print("첫 번째 숫자를 입력하세요. : ");
                 x = scanner.nextDouble();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("정수만 입력해주세요.");
+                System.out.println("숫자만 입력해주세요.");
                 scanner.nextLine();
             }
         }
@@ -35,12 +35,12 @@ public class InputMannger {
         double y;
         while(true) {
             try {
-                System.out.print("두 번째 정수를 입력하세요. : ");
+                System.out.print("두 번째 숫자를 입력하세요. : ");
                 y = scanner.nextDouble(); // 3 + 엔터 ->입력
                 scanner.nextLine(); // 위에 nextInt에서 입력받은 엔터를 없애주는 역할 이걸 안해주면 다음 operatorAnswer 메서드에서 엔터가 넘어감
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("정수만 입력해주세요.");
+                System.out.println("숫자만 입력해주세요.");
                 scanner.nextLine();
             }
         }
